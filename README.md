@@ -5,7 +5,7 @@ A simple proof-of-concept for wrapping websocket messages in a promise to make t
 Initialize a new instance of SockThen and use the send function, similarly to a regular websocket. But unlike a regular websocket, it returns a promise so you can use `.then()` or `await`.
 
 In the browser:
-```
+```js
 const sock = new SockThen('ws://localhost:3000');
 
 // Then-able websocket message!
@@ -17,7 +17,7 @@ await sock.send('Hello again');
 This requires special handling on the server side, because your message gets wrapped in an object with a unique ID property and the original payload. This object is JSON encoded and sent over the websocket. The server can parse the JSON and do whatever you want with the payload, but it must respond with a JSON object that has the same ID and a payload property with the response value.
 
 On the server, inside the message handler function:
-```
+```js
 // Parse the message.
 const data = JSON.parse(message);
 
