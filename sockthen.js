@@ -35,7 +35,6 @@ class SockThen {
     });
   }
   
-    
   close(){
     this.socket.close();
   }
