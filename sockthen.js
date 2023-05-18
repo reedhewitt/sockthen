@@ -34,4 +34,9 @@ class SockThen {
       this.socket.send(JSON.stringify(data));
     });
   }
+  
+    
+  close(){
+    this.socket.close();
+  }
 }
